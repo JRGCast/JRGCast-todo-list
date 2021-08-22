@@ -169,20 +169,17 @@ function hightLightTaskMouseOut() {
 }
 hightLightTaskMouseOut();
 
-// function enterAddsTask() {
-//   inputTask.addEventListener('keyup', function (event) {
-//     eventKeyString = event.key.toString();
-//     console.log('You have pressed key: ' + event.key);
-//     console.log(eventKeyString);
-//     event.preventDefault();
-//     if (eventKeyString === 'ArrowDown') {
-//       let task = document.createElement('li');
-//       task.innerHTML = inputTask.value;
-//       task.className = 'task';
-//       taskList.appendChild(task);
-//       inputTask.value = '';
-//       inputTask.style.backgroundColor = 'white';
-//     }
-//   });
-// }
-// enterAddsTask();
+function enterAddsTask() {
+  inputTask.addEventListener('keydown', function (event) {
+    if (inputTask.value !== '' && event.key === ('Enter')) {
+      event.preventDefault()
+      let task = document.createElement('li');
+      task.innerHTML = inputTask.value;
+      task.className = 'task';
+      taskList.appendChild(task);
+      inputTask.value = '';
+      inputTask.style.backgroundColor = 'white';
+    }
+  });
+}
+enterAddsTask();
